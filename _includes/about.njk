@@ -1,0 +1,14 @@
+---
+layout: base
+title: About
+---
+
+<main class="container mx-auto mt-16 text-3xl text-blue-200">
+  <div>
+    {% image "https://images.unsplash.com/photo-1608178398319-48f814d0750c",
+    "nebula", "(min-width: 30em) 50vw, 100vw" %}
+  </div>
+  <div>
+    {{ content | safe }}
+  </div>
+</main>

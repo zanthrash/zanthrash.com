@@ -1,0 +1,48 @@
+
+{% set navPages = collections.all | eleventyNavigation %}
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <title>{{ site.title }} - {{ title }}</title>
+    <meta charset="UTF-8" />
+    {% if description %}
+    <meta name="description" content="{{ description }}" />
+    {% endif %}
+    <meta http-equiv="x-ua-compatible" compatible="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css?v={% version %}" />
+    {% block head %}{% endblock %}
+  </head>
+  <body
+    class="flex flex-col w-screen h-full bg-gradient-to-r from-purple-800 to-indigo-600 font-serif"
+  >
+    <header class="p-3 w-screen flex justify-between">
+      <a href="/">
+        <h1 class="text-indigo-300 text-2xl pl-5">ZT</h1>
+      </a>
+      <nav class="text-indigo-300 pr-10">
+        <ul class="flex justify-between">
+        {%- for entry in navPages -%}
+        {% set navLinkClass = "px-4" %}
+        <li {% if entry.url == page.url %} class="text-pink-500 {{navLinkClass}}"{% endif %} class="{{navLinkClass}}">
+          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        </li>
+
+        {%- endfor -%}
+        </ul>
+      </nav>
+    </header>
+    {# <main class="flex flex-col flex-1"> #}
+      {{ content | safe }}
+    {# </main> #}
+  </body>
+</html>
