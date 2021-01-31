@@ -3,12 +3,14 @@ layout: base
 title: About
 ---
 
-<main class="container mx-auto mt-16 text-3xl text-blue-200">
-  <div>
+<main
+  class="container mx-auto mt-16 text-3xl text-blue-200 grid grid-cols-1 md:grid-cols-4 gap-5 justify-items-start"
+>
+  <div class="w-48 md:justify-self-end md:place-self-start place-self-center">
     {% image "https://images.unsplash.com/photo-1608178398319-48f814d0750c",
-    "nebula", "(min-width: 30em) 50vw, 100vw" %}
+    "nebula" , "rounded-full" %}
   </div>
-  <div>
+  <div class="col-span-2">
     {{ content | safe }}
   </div>
 </main>

@@ -1,7 +1,10 @@
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
+const addShortcodes = require("./config/shortcodes");
+const addCollections = require("./config/collections");
+const addPlugins = require("./config/plugins");
+const addFilters = require("./config/filters");
 
-async function imageShortcode(src, alt, sizes) {
+async function imageShortcode(src, alt, clazz, sizes) {
   let metadata = await Image(src, {
     widths: [300, 600],
     // formats: ["jpeg", "png", "webp"],
@@ -11,6 +14,7 @@ async function imageShortcode(src, alt, sizes) {
   let imageAttributes = {
     alt,
     sizes,
+    class: clazz,
     loading: "lazy",
     decoding: "async",
   };
@@ -22,12 +26,12 @@ async function imageShortcode(src, alt, sizes) {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addWatchTarget("./_tmp/style.css");
   eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
-  eleventyConfig.addPassthroughCopy({ "./src/": "./" });
-  eleventyConfig.addShortcode("version", function () {
-    return String(Date.now());
-  });
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  addPlugins(eleventyConfig);
+  addShortcodes(eleventyConfig);
+  addCollections(eleventyConfig);
+  addFilters(eleventyConfig);
 };

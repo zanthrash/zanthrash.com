@@ -1,9 +1,9 @@
 ---
 eleventyNavigation:
   key: resume
+  order: 3
 layout: resume
 title: resume
-tags: nav
 ---
 
 # Resume Stuff goes here

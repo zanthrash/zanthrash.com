@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "eleventy --serve && postcss styles/tailwind.css -o _tmp/style.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss styles/tailwind.css --o _site/style.css"
+    "start": "yarn clean && eleventy --serve && postcss styles/tailwind.css -o _tmp/style.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss styles/tailwind.css --o _site/style.css",
+    "clean": "rimraf ./_site"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -13,9 +14,11 @@
     "@11ty/eleventy-navigation": "^0.1.6",
     "autoprefixer": "^10.2.1",
     "postcss-cli": "^8.3.1",
+    "rimraf": "^3.0.2",
     "tailwindcss": "^2.0.2"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.0"
+    "@tailwindcss/typography": "^0.4.0",
+    "luxon": "^1.25.0"
   }
 }

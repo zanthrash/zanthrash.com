@@ -1,0 +1,23 @@
+---
+eleventyNavigation:
+  key: blog
+  order: 2
+layout: blog
+title: blog
+---
+
+  <section>
+    <h2 class="text-4xl text-yellow-500 my-10">Posts</h2>
+
+    <div class="flex flex-col space-y-3">
+      {% for post in collections.post | reverse %}
+        {% postListItem  
+          url=post.url | url, 
+          date=post.date | readableDate,
+          title=post.data.title,
+          description=post.data.description
+          %}
+
+      {% endfor %}
+    </div>
+  </section>

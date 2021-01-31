@@ -1,4 +1,3 @@
-
 {% set navPages = collections.all | eleventyNavigation %}
 
 <!DOCTYPE html>
@@ -31,18 +30,24 @@
       </a>
       <nav class="text-indigo-300 pr-10">
         <ul class="flex justify-between">
-        {%- for entry in navPages -%}
-        {% set navLinkClass = "px-4" %}
-        <li {% if entry.url == page.url %} class="text-pink-500 {{navLinkClass}}"{% endif %} class="{{navLinkClass}}">
-          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-        </li>
+          {%- for entry in navPages -%} 
+            {% set navLinkClass = "px-4" %} 
+            {% set isActive =page.url.startsWith(entry.url) %}
 
-        {%- endfor -%}
+            <li
+              {% if isActive %} class="text-pink-500 {{ navLinkClass }}" {% endif %} class="{{ navLinkClass }}" >
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+
+          {%- endfor -%}
         </ul>
       </nav>
     </header>
-    {# <main class="flex flex-col flex-1"> #}
+    {#
+    <main class="flex flex-col flex-1">
+      #}
       {{ content | safe }}
-    {# </main> #}
+    </main>
+    <footer>{% version %}</footer>
   </body>
 </html>
