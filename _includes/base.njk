@@ -19,16 +19,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style.css?v={% version %}" />
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+
     {% block head %}{% endblock %}
   </head>
   <body
-    class="flex flex-col w-screen h-full bg-gradient-to-r from-purple-800 to-indigo-600 font-serif"
+    class="flex flex-col w-screen h-full font-serif bg-gradient-to-r from-purple-800 to-indigo-600"
   >
-    <header class="p-3 w-screen flex justify-between">
+    <header class="flex justify-between w-screen p-3">
       <a href="/">
-        <h1 class="text-indigo-300 text-2xl pl-5">ZT</h1>
+        <h1 class="pl-5 text-2xl text-indigo-300">ZT</h1>
       </a>
-      <nav class="text-indigo-300 pr-10">
+      <nav class="pr-10 text-indigo-300">
         <ul class="flex justify-between">
           {%- for entry in navPages -%} 
             {% set navLinkClass = "px-4" %} 
@@ -43,9 +45,8 @@
         </ul>
       </nav>
     </header>
-    {#
+    
     <main class="flex flex-col flex-1">
-      #}
       {{ content | safe }}
     </main>
     <footer>{% version %}</footer>

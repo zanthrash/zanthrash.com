@@ -1,8 +1,20 @@
 ---
-layout: base
+layout: blog
 ---
 
-<main class="container mx-auto">
-  {{ title }}
+<section class="w-full mx-auto mt-10 md:w-2/3 ">
+  <div>
+    <h1 class="text-4xl text-yellow-400">
+    {{ title }}
+    </h1>
+
+
+    <div class="text-lg text-pink-500">
+    {{ date | readableDate}}
+    </div>
+  </div>
+
+  <article class="px-8 py-4 mt-8 text-lg prose-2xl bg-purple-100 bg-opacity-75 rounded-md">
   {{ content | safe }}
-</main>
+  </article>
+</section>
