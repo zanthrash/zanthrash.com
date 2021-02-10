@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("version", function () {
-    return String(Date.now());
+    return String(new Date().toISOString().split("T")[0]);
   });
 
   eleventyConfig.addShortcode("postListItem", function (post) {

@@ -3,6 +3,17 @@ layout: base
 title: Resume
 ---
 
-<h2>Resume</h2>
+<section
+  class="container mx-auto mt-16 text-3xl md:grid-cols-4 justify-items-start"
+>
+  <h2 class="text-yellow-400">Zan Thrash</h2>
+  <address class="hidden text-base text-blue-200 print:flex-col print:flex">
+    <a href="mailto:zan@zanthrash.com">zan@zanthrash.com<a> 
+    <a href="tel:+16123801662">(612) 380-1662</a>
+  </address>
 
-{{ content | safe }}
+  <div class="p-4 prose-sm bg-gray-100 rounded-sm md:prose-xl">
+  {{ content | safe }}
+  </div>
+
+<section>

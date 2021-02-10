@@ -5,7 +5,11 @@ module.exports = {
     fontFamily: {
       serif: ["Roboto Slab"],
     },
-    extend: {},
+    extend: {
+      screens: {
+        print: { raw: "print" },
+      },
+    },
   },
   variants: {
     extend: {},

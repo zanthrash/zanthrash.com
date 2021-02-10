@@ -1,0 +1,77 @@
+---
+eleventyNavigation:
+  key: resume
+  order: 3
+layout: resume
+title: resume
+---
+
+
+<h3>Work History</h3>
+<div class="">
+  {% for job in collections.jobs | reverse%}
+    <div class="flex pb-8 ml-6 space-x-8 border-l-4 border-pink-300">
+
+      <div class="text-sm text-center text-pink-200">
+        <div class="-mt-2 -ml-4 overflow-hidden bg-pink-500 rounded-md ring-4 ring-pink-300">
+          <div class="px-2 py-1 text-pink-500 bg-pink-100">
+            {% if job.data.endDate %}
+            <div class="text-lg font-semibold">
+              {{job.data.endDate | year}}
+            </div>
+            <div class="font-light">
+              {{job.data.endDate | monthShort}}
+            </div>
+            {% else %}
+              <div>Present</div>  
+            {% endif %}
+          </div>
+          <div class="px-2 py-1">
+            <div class="text-lg font-semibold">
+              {{job.data.date | year}}
+            </div>
+            <div class="font-thin">
+              {{job.data.date | monthShort}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section >
+        <header>{{job.data.company}}</header> 
+        <div>{{job.data.position}}</div>
+        <div>
+          {{job.data.overview  }}
+        </div>
+        <div>
+          {% for highlight in job.data.highlights %}
+          <div>
+          🤬 {{highlight}} 
+          </div>
+          {% endfor %}
+        </div>
+        <div>
+          {% for skill in job.data.skills %}
+            🤘 {{skill}} 
+          {% endfor %}
+        </div>
+      </section> 
+    </div>
+  {% endfor %}
+
+</div>
+
+<div>
+  <h3>Education</h3>
+
+  <div class="divide-y-4">
+    {% for school in collections.education %}
+    <section>
+      <div>{{school.data.institution}}</div> 
+      <div>{{school.data.degree}}</div> 
+      <div>{{school.data.date | readableDate}}</div> 
+    </section>
+    {% endfor %}
+  </div>
+
+</div>

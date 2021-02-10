@@ -6,7 +6,9 @@ module.exports = function (eleventyConfig) {
         let tags = item.data.tags;
 
         tags = tags.filter(function (item) {
-          return !["all", "nav", "post", "posts"].includes(item);
+          return !["all", "nav", "post", "posts", "jobs", "education"].includes(
+            item
+          );
         });
 
         for (const tag of tags) {
