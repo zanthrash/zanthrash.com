@@ -2,7 +2,7 @@
 company: Target
 date: 2017-07-02
 # endDate: present
-position: Principal Engineer
+position: Principal Fullstack Engineer
 overview: Provided technical leadership and oversight to high performance team, tasked to create the custom reporting and visualization UI for Targets next generation Supply Chain software.
 highlights:
   - Technical leader across multiple front-end teams.
