@@ -29,6 +29,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addWatchTarget("./_tmp/style.css");
   eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
+  eleventyConfig.addPassthroughCopy({ "./assets/favicon/*.*": "./" });
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   addPlugins(eleventyConfig);
   addShortcodes(eleventyConfig);
