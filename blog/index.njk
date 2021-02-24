@@ -7,13 +7,16 @@ title: blog
 ---
 
   <section>
-    <h2 class="text-4xl text-yellow-500 my-10">Posts</h2>
+    <h2 class="my-10 text-4xl text-yellow-500">Posts</h2>
 
     <div class="flex flex-col space-y-3">
       {% for post in collections.post | reverse %}
         {% postListItem  
           url=post.url | url, 
           date=post.date | readableDate,
+          year=post.date | year,
+          month=post.date | monthShort,
+          day=post.date | day,
           title=post.data.title,
           description=post.data.description
           %}

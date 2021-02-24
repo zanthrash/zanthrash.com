@@ -23,7 +23,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css" />
-    <link rel="stylesheet" href="/style.css?v={% version %}" />
+    <link rel="stylesheet" href="/style.css?v={% lastUpdated %}" />
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 
     {% block head %}{% endblock %}
@@ -54,6 +54,9 @@
     <main class="flex flex-col flex-1">
       {{ content | safe }}
     </main>
-    <footer>{% version %}</footer>
+
+    <footer class="text-center text-purple-900 bg-white opacity-20">
+    made in mn {% year %} &copy; zanthrash.com
+    </footer>
   </body>
 </html>
